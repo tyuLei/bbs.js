@@ -1,0 +1,26 @@
+doctype html
+//- 当前页面要求点击链接跳转到发布者的位置
+//- 显示发布的主要信息
+//- pug用tab建的缩进表示层级关系
+
+html
+  head
+    title tyuleibbs
+    link(rel="stylesheet", href="/home-page.css")
+  body
+    h1 TYULEI'S BBS
+    a(href="/post") 我要发贴
+    if(user)
+      p 欢迎，#{user.name}
+    else
+      p 未登陆，<a href="/login">请登陆</a>
+
+    ul
+      each post in posts
+        li.post-item
+          img(src=post.user.avatar, alt=post.user.name)
+          h2
+            a(href=`/post/${post.id}`)= post.title
+          p 发帖时间: #{new Date(post.createdAt).toString()}
+          span 回帖数量: #{post.commentCount}
+    footer

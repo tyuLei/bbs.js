@@ -1,0 +1,28 @@
+doctype html
+
+html
+  head
+    title #{post.title} -BBS
+    link(rel='stylesheet', href='post-page.css')
+
+  body
+    include header.pug
+    h2=post.title
+    p= post.content
+
+    ul
+      if(comments.length == 0)
+        p 帖子现在还没有回复，回复一下消灭零评论！！
+      else
+        each comment in comments
+          li
+            a(href=`/user/${comment.user.id}`)= comment.user.name
+            p= comment.content
+            span= new Date(comment.createdAt).toString()
+
+      form(action="")
+        textarea(name="", cols='30', row='10')
+        button 提交回复
+
+
+    include footer.pug
