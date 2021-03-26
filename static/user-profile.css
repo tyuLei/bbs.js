@@ -1,0 +1,87 @@
+html,body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+.user-container{
+  background:#E2E2E2;
+  position: relative;
+  min-height:100%;
+}
+.user-content {
+  width: 65%;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+
+}
+.cross-line {
+  width: 100%;
+  height: 1px;
+  background:#BBBECD;
+}
+
+
+ul {
+  list-style: none;
+  margin:0;
+  padding: 0;
+}
+
+.user-user, .user-send, .user-comment {
+  background: white;
+  border-radius: 8px;
+  margin-top: 30px;
+  overflow: hidden;
+}
+img{
+  border-radius: 8px;
+}
+.user-img{
+  display: inline-block;
+  margin: 10px 20px 10px 32px;
+
+}
+
+.user-name , .user-title{
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 10px;
+
+}
+.user-name a {
+  display: block;
+  margin-bottom:15px;
+}
+.user-title a {
+  display: block;
+  margin-bottom:15px;
+}
+a {
+  text-decoration: none;
+}
+h3 {
+  margin: 6px 0 6px 32px;
+  color: #999999;
+}
+
+.footer {
+    bottom: 20px;
+    text-align: center;
+    color: #999999;
+
+}
+.user-user {
+  overflow: hidden;
+}
+.user-user img{
+  margin: 10px 0 10px 32px;
+}
+.user-user span {
+  display: inline-block;
+     font-size: 32px;
+    margin-top: 23px;
+    margin-left: 20px;
+    vertical-align: top;
+}

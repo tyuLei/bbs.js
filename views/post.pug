@@ -3,26 +3,67 @@ doctype html
 html
   head
     title #{post.title} -BBS
-    link(rel='stylesheet', href='post-page.css')
+    link(rel='stylesheet', href='/post.css')
+    script(src="/jquery-3.5.1.js")
 
   body
     include header.pug
-    h2=post.title
-    p= post.content
+    div(class="post-container")
+      div(class="post-content")
+        div(class="content-header")
+          div(class="user")
+            span(class="title")=post.title
+            if(user)
+              span(class="username")=user.name
+            else
+              span(class="username") 游客登陆
+            span(class="time") 发帖时间#{new Date(post.createAt).getMonth() + 1}月#{new Date(post.createAt).getDate()}日
+          div(class="img")
+            div(class="flex")
+              img(src=post.avatar, alt="", width="auto", height="100%")
+          div(class="cross-line")
+          div(class="cross-line")
+          div(class="content")
+            span= post.content
 
-    ul
-      if(comments.length == 0)
-        p 帖子现在还没有回复，回复一下消灭零评论！！
-      else
-        each comment in comments
-          li
-            a(href=`/user/${comment.user.id}`)= comment.user.name
-            p= comment.content
-            span= new Date(comment.createdAt).toString()
+        div(class="comment")
+          p 回复
+          div(class="cross-line")
+          ul
+            if(comments.length == 0)
+              p 帖子现在还没有回复，回复一下消灭零评论！！
+            else
+              each comment in comments
+                li
+                  div(class="comment-img")
+                    a(href=`/user/${comment.userId}`)
+                      img(src=comment.avatar, alt="", width="60", height="60")
+                  div(class="comment-content")
+                    div(class="comment-content-user")
+                      a(href=`/user/${comment.userId}`)= comment.name
+                      span #{new Date(comment.createdAt).getMonth() + 1}-#{new Date(comment.createdAt).getDate()}
+                    span(class="comment-content-item")= comment.content
+                div(class="cross-line")
 
-      form(action="")
-        textarea(name="", cols='30', row='10')
-        button 提交回复
+        div(class="post-comment")
+          p(class="comment") 添加一条评论
+          div(class="cross-line")
+          form(action="/comment" method="post")
+            input(type="hidden" value= post.id name="postId")
+            textarea(name="content")
+            button 提交回复
+          div(class="cross-line")
+          p(class="footer") Coptright &copy; 2020
 
 
-    include footer.pug
+
+    script.
+      let commentForm = document.querySelector('form')
+      //- $("post", commentForm.elements.content).then()
+
+
+
+
+
+
+

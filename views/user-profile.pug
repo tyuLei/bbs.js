@@ -1,0 +1,38 @@
+include header.pug
+link(rel="stylesheet", href="/user-profile.css")
+
+
+
+div(class="user-container")
+  div(class="user-content")
+    div(class="user-user")
+      img(src=userInfo.avatar, alt=userInfo.name, width="74px", height= "74px")
+      span= userInfo.name
+    div(class="user-send")
+      h3 他发过的帖子
+      div(class="cross-line")
+      ul
+        each post in userPosts
+          li
+            div(class="user-img")
+              a(href=`/post/` + post.id)
+                img(src=userInfo.avatar, alt="" width="60" height="60")
+            div(class="user-name")
+              a(href=`/post/` + post.id)= post.title
+              span #{new Date(post.createAt).getMonth() + 1}-#{new Date(post.createAt).getDate()}
+            div(class="cross-line")
+
+    div(class="user-comment")
+      h3 他回复过的帖子
+      div(class="cross-line")
+      ul
+        each comment in userComments
+          li
+            div(class="user-img")
+              a(href=`/post/` + comment.postId)
+                img(src=comment.avatar,width="60", height="60")
+            div(class="user-title")
+              a(href=`/post/` + comment.postId)= comment.postTitle
+              span= comment.content
+            div(class="cross-line")
+      p(class="footer") Coptright &copy; 2020

@@ -1,26 +1,84 @@
-extends basic-layout.pug
+<link href="register.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="jquery-3.5.1.js"></script>
+link(rel="icon", href="../uploads/favicon.png" type="image/x-icon")
 
-block content
-  form(action="/register" method="post")
-    div 用户名
-    input(type="text" name="name")
-    span.tip
-    div 密码
-    input(type='password' name="password")
-    span.tip
-    div 电子邮件
-    input(type='email' name='email')
-    span.tip
-    div
-      button 注册
+
+
+
+
+
+
+
+div(class="container")
+  div(class="left")
+    div(class="logo-container")
+      <svg t="1603031404156" class="logo" viewBox="0 0 3189 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1231" width="14" height="14"><path d="M39.617049 125.062295h703.538361v144.535082H39.617049zM832.629508 440.655738h559.003279v144.535082H832.629508zM832.629508 424.372459V123.047869h144.702951v232.330492l-144.702951 68.994098z" fill="#703675" p-id="1232"></path><path d="M1391.800656 123.047869H977.332459v144.535082h414.468197v245.927869h63.958033a81.248525 81.248525 0 0 0 80.744918-81.248525V239.380984a116.500984 116.500984 0 0 0-116.500984-116.333115z" fill="#703675" p-id="1233"></path><path d="M1391.800656 512.839344v243.577705H977.332459v144.535082h442.502295a116.500984 116.500984 0 0 0 116.500984-116.333115V594.255738a81.416393 81.416393 0 0 0-81.416394-81.416394zM463.821639 415.307541V197.41377h-144.535082v73.358689l144.535082 144.535082z" fill="#703675" p-id="1234"></path><path d="M319.118689 197.41377h144.535081v703.538361h-144.535081zM3058.90623 276.312131l90.984918-144.702951h-593.080656a112.136393 112.136393 0 0 0-111.968525 112.136394v264.225574a100.721311 100.721311 0 0 0 100.721312 100.721311H3004.852459v141.345574h-467.850492l-90.817049 144.702951h572.264918a131.60918 131.60918 0 0 0 131.441312-131.441312v-201.442623a98.203279 98.203279 0 0 0-98.03541-98.03541h-462.478689V276.312131zM832.629508 580.658361h144.535082v320.29377H832.629508zM1638.735738 440.655738h559.003278v144.535082h-559.003278z" fill="#703675" p-id="1235"></path><path d="M1638.735738 470.536393V123.047869h144.535082v330.53377l-144.535082 16.954754z" fill="#703675" p-id="1236"></path><path d="M2197.739016 123.047869h-414.468196v144.535082h414.468196v245.927869h63.958033a81.248525 81.248525 0 0 0 80.577049-81.248525V239.380984a116.333115 116.333115 0 0 0-116.333114-116.333115z" fill="#703675" p-id="1237"></path><path d="M2197.739016 512.839344v243.577705h-414.468196v144.535082h442.670164a116.333115 116.333115 0 0 0 116.333114-116.333115V594.255738a81.416393 81.416393 0 0 0-81.248524-81.416394z" fill="#703675" p-id="1238"></path><path d="M1638.735738 660.396066v240.556065h144.535082V580.658361l-144.535082 79.737705z" fill="#703675" p-id="1239"></path></svg>
+    div(class="background")
+  div(class="right")
+    div(class="register")
+      a(href="login") 已有账号？
+        span(class="identifier") 登陆
+
+
+    div(class="right-container")
+      h3 注册
+      form(action="/register" method="post" enctype="multipart/form-data")
+        div(class="usename-input")
+          <svg t="1603004051759" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2578" width="45" height="45" fill='#693FA1'><path d="M512 304.241778m-133.12 0a133.12 133.12 0 1 0 266.24 0 133.12 133.12 0 1 0-266.24 0Z" p-id="2579"></path><path d="M96.711111 852.650667a415.288889 415.288889 0 0 1 830.577778 0z" p-id="2580"></path></svg>
+          input(type="text" name="name" placeholder="请输入用户名")
+          span.usertip
+        div(class='password-input' )
+          <svg t="1603004380076" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2764" width="45" height="45"><path d="M839.907556 529.066667C948.679111 420.295111 959.829333 254.634667 864.711111 159.288889S603.704889 75.320889 494.933333 184.092444a283.306667 283.306667 0 0 0-78.961777 276.024889L125.383111 750.933333A104.448 104.448 0 1 0 273.066667 898.616889l290.816-290.588445a283.306667 283.306667 0 0 0 276.024889-78.961777z m-52.337778-292.636445a94.663111 94.663111 0 0 1-8.874667 132.892445 94.663111 94.663111 0 0 1-132.892444 8.874666 94.663111 94.663111 0 0 1 8.874666-132.892444 94.663111 94.663111 0 0 1 132.892445-8.874667z" p-id="2765" fill="#693FA1"></path></svg>
+          input(type='password' name="password" placeholder="请输入密码")
+          span.tip
+        div(class="email-input")
+          <svg t="1603035390639" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4607" width="45" height="45"><path d="M622.592 652.629333a156.558222 156.558222 0 0 1-221.184 0L93.752889 345.201778v408.462222a106.723556 106.723556 0 0 0 106.951111 106.723556h622.592a106.723556 106.723556 0 0 0 106.951111-106.723556V345.201778z" fill="#6336A6" p-id="4608"></path><path d="M573.44 603.477333l354.531556-354.759111a106.723556 106.723556 0 0 0-104.675556-85.105778H200.704a106.723556 106.723556 0 0 0-104.675556 85.105778L450.56 603.477333a88.974222 88.974222 0 0 0 122.88 0z" fill="#6336A6" p-id="4609"></path></svg>
+          input(type='email' name='email' placeholder="请输入邮箱")
+          span.emailtip
+        div(class="avatar")
+          <svg t="1603034121496" class="icon" viewBox="0 0 1127 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2936" width="45" height="45"><path d="M1022.16 964.477H115.53s-72.209 11.233-72.209-85.048V101.171s1.606-86.65 89.86-86.65h317.723s38.512-8.024 70.605 41.72c30.488 48.14 48.14 78.628 48.14 78.628s11.233 12.837 36.907 12.837h409.187s72.208-8.024 72.208 72.208v664.329s11.233 80.234-65.792 80.234z m-67.395-609.77c0-19.256-16.046-35.302-35.303-35.302H213.414c-20.861 0-36.907 16.047-36.907 35.302v3.209c0 20.86 16.046 36.907 36.907 36.907h706.048c19.257 0 35.303-16.047 35.303-36.907v-3.209z" fill="#693FA1" p-id="2937"></path></svg>
+          span(class="span-avatar") 请选择头像
+          label
+            input(type="file" name="avatar" placeholder="请选择头像")
+
+
+
+        div
+        button 注册
+
+
   script.
     let nameInput = document.querySelector("[name = 'name']")
-    let spanTip = document.querySelector(".tip")
+    let emailInput = document.querySelector("[name = 'email']")
+    let userTip = document.querySelector(".usertip")
+    let emailTip = document.querySelector(".emailtip")
+    let spanAvatar = document.querySelector(".span-avatar")
+    let avatarInput = document.querySelector("[name ='avatar']")
+
+
+    avatarInput.onchange = function(e){
+      spanAvatar.textContent = avatarInput.files[0].name
+      spanAvatar.style.color = "#393939"
+    }
 
     nameInput.oninput = function(e){
       $.get('/username-conflict-check?name=' + this.value).then(result => {
-          spanTip.textContent = result.msg
-          //- $(".tip").textContent = result.msg
+          console.log(result)
+          userTip.textContent = result.msgUser
 
+          //- $(".tip").textContent = result.msg
       })
     }
+
+
+
+     emailInput.oninput = function(e){
+      $.get('/username-conflict-check?email=' + this.value).then(result => {
+          emailTip.textContent = result.msgEmail
+
+          //- $(".tip").textContent = result.msg
+      })
+    }
+
+
+

@@ -6,21 +6,26 @@ doctype html
 html
   head
     title tyuleibbs
-    link(rel="stylesheet", href="/home-page.css")
+    link(rel="stylesheet", href="/index.css")
   body
-    h1 TYULEI'S BBS
-    a(href="/post") 我要发贴
-    if(user)
-      p 欢迎，#{user.name}
-    else
-      p 未登陆，<a href="/login">请登陆</a>
+    include header.pug
 
-    ul
-      each post in posts
-        li.post-item
-          img(src=post.user.avatar, alt=post.user.name)
-          h2
-            a(href=`/post/${post.id}`)= post.title
-          p 发帖时间: #{new Date(post.createdAt).toString()}
-          span 回帖数量: #{post.commentCount}
-    footer
+    div(class="post-container")
+      div(class="post-content")
+        ul
+          each post in posts
+            li.post-item
+              div(class="container-img")
+                div(class="flex")
+                  img(src=post.avatar, alt=post.name, width="auto", height="100%")
+              div(class="post-item-content")
+                h2
+                  a(href=`/post/${post.id}`)= post.title
+                div(class="item-user")
+                  span(class="username")= post.name
+                  span(class="create-date") #{new Date(post.createAt).getMonth() + 1}月#{new Date(post.createAt).getDate()}日
+              div(class="comment")
+                span #{post.count}
+            div(class="cross-line")
+
+

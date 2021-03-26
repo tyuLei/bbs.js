@@ -1,0 +1,119 @@
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.add-container{
+  width: 100%;
+      height: calc(100% - 55px);
+  background:#E2E2E2;
+  overflow: hidden;
+  position: relative;
+}
+.add-content{
+  width: 65%;
+  height: 75%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background:white;
+  overflow: hidden;
+  overflow: hidden;
+  border-radius: 6px;
+}
+.cross-line{
+  height: 1px;
+  width: 100%;
+  background: #BBBECD;
+}
+h2{
+  font-size:22px;
+  color:#383838;
+  margin-left: 32px;
+  font-weight: middle;
+}
+
+  input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s;
+}
+input:-webkit-autofill , textarea:-webkit-autofill, select:-webkit-autofill {
+  -webkit-text-fill-color: #393939 !important;
+
+	-webkit-box-shadow: 0 0 0px 1000px transparent  inset !important;
+    background-color:transparent;
+    background-image: none;
+     transition: background-color 50000s ease-in-out 0s;
+}
+input:-webkit-autofill::first-line{
+   font-size: 22px;
+}
+input {
+  border: 0 none;
+  outline:none;
+  vertical-align: middle;
+  background-color:transparent;
+  font: 400 18px Arial !important;
+  height: 68px;
+  margin-left:32px;
+
+}
+textarea{
+  width: calc(100% - 64px);
+  height: 40%;
+  border: none;
+  resize: none;
+  cursor: pointer;
+  margin-left: 32px;
+  margin-right: 32px;
+  font-size: 20px;
+  padding:20px;
+}
+input::placeholder{
+  color:#999999;
+}
+.title {
+  margin:8px;
+  margin-left:24px;
+}
+.title-content{
+  vertical-align: middle;
+}
+.title-content::before{
+  content:">";
+  margin-right: 10px;
+  vertical-align: middle;
+  position: relative;
+  top:-2px;
+}
+button{
+      float: right;
+    border: none;
+    border-radius: 4px;
+    background: #693FA1;
+    font-size: 18px;
+    color: white;
+    width: 110px;
+    height: 40px;
+    margin-top: 46px;
+    margin-right: 32px;
+
+}
+.footer {
+  position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #999999;
+
+}
+
+textarea:focus {
+
+    outline: none;
+
+}

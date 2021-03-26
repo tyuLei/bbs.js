@@ -1,0 +1,70 @@
+.container {
+  background: #693FA1;
+  height: 55px;
+  position: relative;
+}
+.icon {
+  fill: white;
+  vertical-align: middle;
+}
+h1 {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  font-size: 0;
+  margin-left: 6%;
+  height: 55px;
+  padding-top: 13px;
+}
+.left-p, .right-p {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+  width: 65%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin:auto;
+  line-height: 55px;
+  font-size: 0;
+}
+.header-out,.header-logout, .header-login, .header-register, .header-post, .header-username{
+  color:white;
+  vertical-align: middle;
+  font-size: 18px;
+  text-decoration: none;
+}
+.header-username,.header-login {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.header-post{
+  float: right;
+
+}
+
+.send-post{
+  float: right;
+    border: 1px solid white;
+    border-radius: 2px;
+    width: 86px;
+    height: 30px;
+    line-height: 1.6;
+    margin-top: 11px;
+}
+.send-post svg {
+  margin-top: 3px;
+  margin-left: 10px;
+}
+.send-post a {
+    margin-right: 8px;
+}
+
+
+
+
+
+
