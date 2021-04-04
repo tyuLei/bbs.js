@@ -80,7 +80,7 @@ app.use(async (req, res, next) => {
   if (req.signedCookies.user) {
     let user = await db.get('SELECT rowid as id,  * FROM users WHERE name = ?', req.signedCookies.user)
     req.user = user
-    console.log(req.user, req.signedCookies.user)
+
   }
   next()
 })
@@ -124,7 +124,8 @@ app.route("/register")
     await fsp.rename(file.path, targetName)
 
     var avartarOnlineUrl = "/uploads/" + path.basename(targetName)
-    console.log("收到注册请求", user, file)
+    // console.log("收到注册请求", user, file)
+
     try {
       await db.run(
         `INSERT INTO users VALUES (?,?,?,?)`,
@@ -148,7 +149,8 @@ app.route("/register")
 //登出页面
 app.get("/logout", (req, res, next) => {
   res.clearCookie("user")
-  res.redirect("/")
+  // console.log(req.get("referer"), ' req.path')
+  res.redirect(req.get("referer"))
 })
 
 
@@ -208,6 +210,7 @@ app.route("/login")
       previousUrl = ''
     }
     if (previousUrl2 && previousUrl2.pathname == '/register') {
+      console.log('previous', true)
       previousUrl = '/'
     }
     console.log('parsename', previousUrl2.pathname)
@@ -218,13 +221,13 @@ app.route("/login")
   })
   .post(async (req, res, next) => {
     let user = await db.get(`SELECT * from users where name =  ? and password = ? `, [req.body.name, req.body.password])
-    if (req.body.captcha !== req.session.captcha) {
-      res.json({
-        code: 1,
-        msg: "验证码错误"
-      })
-      return
-    }
+    // if (req.body.captcha !== req.session.captcha) {
+    //   res.json({
+    //     code: 1,
+    //     msg: "验证码错误"
+    //   })
+    //   return
+    // }
 
 
 
@@ -358,6 +361,10 @@ app.route('/post')
   })//发帖
   .post(async (req, res, next) => {
     //req.body是tittle和content两个由urlencode解析出来的对象
+    if (!req.user) {
+      res.header({ 'content-type': 'text/html' })
+      res.end('未登陆')
+    }
     var post = req.body
     console.log(res.user)
     await db.run(
@@ -425,6 +432,8 @@ app.post("/comment", async (req, res, next) => {
 
     res.redirect('/post/' + comment.postId)
   } else {
+
+    res.header({ 'content-type': 'text/html' })
     res.end('未登陆')
   }
 })
